@@ -41,7 +41,7 @@
           </div>  
           <ul class="social-links" style="float:right"> 
             <li> 
-              <a href="#" rel="nofollow" style="background-image:url('./images/facebook.png')" title="Be a fan on Facebook"></a> 
+              <a href="https://www.facebook.com/taguigIS/" rel="nofollow" style="background-image:url('./images/facebook.png')" title="Be a fan on Facebook"></a> 
             </li>  
             <li> 
               <a href="#" rel="nofollow" style="background-image:url('./images/twitter.png')" title="Follow us on Twitter"></a> 

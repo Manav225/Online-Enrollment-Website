@@ -29,6 +29,7 @@
                         <li><a href="#">News</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Teachers</a></li>
+                        <li><a href="#">Online Enrollment</a>
                     </ul>
                 </nav>
             </div>
