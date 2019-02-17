@@ -54,6 +54,7 @@ header{
 
 #mid_header .title{
     color: #fff;
+    text-transform: uppercase;
 }
 
 #mid_header .logo{
@@ -71,10 +72,11 @@ header{
 }
 
 #bottom_header nav{
-    transform: translateY(-30px);
-    background-color: red;
+    transform: translateY(-50px);
+    background-color: #fff;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0px 0px 5px #888;
 }
 
@@ -89,19 +91,61 @@ header{
     padding: 25px 30px;
     font-weight: bold;
     color: #111;
-    border-bottom: 3px solid #fff;
-
+    border-bottom: 4px solid #fff;
+    transition: all 300ms;
 }
 
 #bottom_header nav ul li a:hover{
-    border-bottom: 3px solid rgb(224, 54, 54);
+    border-bottom: 4px solid rgb(224, 54, 54);
+    background-color: #f1f1f1;
 }
 
 
-/* temp */
-#temp{
-    background-image: url(../images/image_1.jpg);
-    height: 700px;
+/* Main */
+main{
+    margin-top: 50px;
+}
+
+main .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+main .container .image-slider{
+    width: 650px;
+    height: 480px;
+    background-image: url('../images/image_1.jpg');
     background-size: cover;
     background-position: center;
+}
+
+main .container .social-media h3{
+    padding: 5px 10px;
+    background-color: rgb(224, 54, 54);
+    color: #fff;
+}
+
+main .container .social-media{
+    width: 300px;
+    overflow: hidden;
+}
+
+/* Events */
+#events{
+    margin-top: 15px;
+}
+
+#events h2{
+    background-color: rgb(224, 54, 54);
+    color: #fff;
+    padding: 0 15px;
+}
+
+#events .news{
+    padding: 15px;
+}
+
+#events .news p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

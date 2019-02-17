@@ -7,14 +7,20 @@
             <div class="vmenu"> 
               <ul> 
                 <li>
-                  <a href="#">Lorem ipsum</a>
+                  <a href="#">Home</a>
                 </li>  
                 <li>
-                  <a href="#">Vivamus</a>
+                  <a href="#">News</a>
                 </li>  
                 <li>
-                  <a href="#">Suspendisse</a>
+                  <a href="#">Events</a>
                 </li> 
+                <li>
+                  <a href="#">Teachers</a>
+                </li>
+                <li>
+                  <a href="#">Online Enrollment</a>
+                </li>
               </ul> 
             </div> 
           </div>  
@@ -34,22 +40,11 @@
         <div class="baseline"> 
           <div style="float:left;margin-top:7px"> 
             <p> 
-              <!-- Update your organization copyright --> Copyright - 2019 - Your Organization | All Rights Reserved | 
-              <!-- This template is free. In respect with copyright, please keep this credit link visible and unmodified (except for translation purposes) --> Designed with doTemplate. Create your custom 
-              <a href="http://www.dotemplate.com">website template</a> easily.
+              <!-- Update your organization copyright --> Copyright - 2019 - Taguig Integrated School | All Rights Reserved | 
+              Online Portal for Taguig Integrated School | A Project from STI College Global City
             </p> 
           </div>  
-          <ul class="social-links" style="float:right"> 
-            <li> 
-              <a href="https://www.facebook.com/taguigIS/" rel="nofollow" style="background-image:url('./images/facebook.png')" title="Be a fan on Facebook"></a> 
-            </li>  
-            <li> 
-              <a href="#" rel="nofollow" style="background-image:url('./images/twitter.png')" title="Follow us on Twitter"></a> 
-            </li>  
-            <li> 
-              <a href="#" style="background-image:url('./images/googleplus.png')" title="Circle us on Google+"></a> 
-            </li>  
-          </ul>  
+          
           <div class="clear"></div> 
         </div> 
       </div> 

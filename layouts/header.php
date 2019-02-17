@@ -1,3 +1,6 @@
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+
 <header>
         <div id="top_header">
             <div class="container">
@@ -17,6 +20,7 @@
                     </div>
                     <div class="title">
                         <h1>Taguig Integrated School</h1>
+                        <p>LIWAYWAY STREET, STA.ANA TAGUIG CITY 1632</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +33,7 @@
                         <li><a href="#">News</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Teachers</a></li>
-                        <li><a href="#">Online Enrollment</a>
+                        <li><a href="#">Online Enrollment</a></li>
                     </ul>
                 </nav>
             </div>
