@@ -6,9 +6,8 @@
             <div class="container">
                 <p>Online Portal for Taguig Integrated School</p>
                 <div class="top_nav">
-                    <a href="#">Admin Dashboard</a>
+                    <a href="admin.php">Admin Dashboard</a>
                     <a href="#">About Us</a>
-                    <a href="#">Registration</a>
                 </div>
             </div>
         </div>
@@ -20,7 +19,7 @@
                     </div>
                     <div class="title">
                         <h1>Taguig Integrated School</h1>
-                        <p>LIWAYWAY STREET, STA.ANA TAGUIG CITY 1632</p>
+                        <p>LIWAYWAY STREET, STA. ANA TAGUIG CITY 1632</p>
                     </div>
                 </div>
             </div>
@@ -29,9 +28,8 @@
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Events</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="#">Announcements</a></li>
                         <li><a href="#">Teachers</a></li>
                         <li><a href="#">Online Enrollment</a></li>
                     </ul>

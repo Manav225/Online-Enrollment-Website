@@ -10,11 +10,8 @@
                   <a href="#">Home</a>
                 </li>  
                 <li>
-                  <a href="#">News</a>
+                  <a href="#">Announcements</a>
                 </li>  
-                <li>
-                  <a href="#">Events</a>
-                </li> 
                 <li>
                   <a href="#">Teachers</a>
                 </li>
@@ -30,8 +27,8 @@
           </div>  
           <div class="col span_1_of_3"> 
             <h2>Contact</h2>  
-            <p>Your Company Ltd
-              <br /> 10 Somewhere Street, WWW Design City
+            <p>Taguig Integrated School
+              <br /> LIWAYWAY STREET, STA. ANA TAGUIG CITY 1632
               <br /> 
             </p> 
           </div> 
