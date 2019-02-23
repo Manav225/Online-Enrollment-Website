@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include_once 'dbh.inc.php';
 
     // Verifies admin login
@@ -21,13 +23,27 @@
             }
         }
 
-        if($username == $username){
-            if(password_verify($password, $serverPassword)){
-                echo "Passowords Match!";
+        if( !(empty($username) || empty($password)) ){
+            if($username == $serverUsername){
+                if(password_verify($password, $serverPassword)){
+                    echo "Passowords Match!";
+                    $_SESSION['admin_logged_in'] = $serverUsername;
+                    $_SESSION['loginerror'] = 0;
+                    header("Location: ../index.php?success");
+                }
+                else{
+                    $_SESSION['loginerror'] = 1;
+                    header("Location: ../admin.php?incorrect");     
+                }
             }
             else{
-                echo "Wrong Information!";
+                $_SESSION['loginerror'] = 1;
+                header("Location: ../admin.php?empty");
             }
+        }else{
+            $_SESSION['loginerror'] = 1;
+            header("Location: ../admin.php?empty");   
         }
+        
 
     }

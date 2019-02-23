@@ -18,6 +18,11 @@
                 <li>
                   <a href="#">Online Enrollment</a>
                 </li>
+                <?php
+                  if(isset($_SESSION['admin_logged_in'])){
+                    echo '<li><a href="admin_dashboard.php">Admin Dashboard</a></li>';
+                  }
+                ?>
               </ul> 
             </div> 
           </div>  
@@ -27,9 +32,9 @@
           </div>  
           <div class="col span_1_of_3"> 
             <h2>Contact</h2>  
-            <p>Taguig Integrated School
+            <p><?php echo $websiteName; ?>
               <br /> LIWAYWAY STREET, STA. ANA TAGUIG CITY 1632
-              <br /> 
+              <br /> 275-51-09
             </p> 
           </div> 
         </div>  
@@ -37,8 +42,8 @@
         <div class="baseline"> 
           <div style="float:left;margin-top:7px"> 
             <p> 
-              <!-- Update your organization copyright --> Copyright - 2019 - Taguig Integrated School | All Rights Reserved | 
-              Online Portal for Taguig Integrated School | A Project from STI College Global City
+              <!-- Update your organization copyright --> Copyright - 2019 - <?php echo $websiteName; ?> | All Rights Reserved | 
+              Online Portal for <?php echo $websiteName; ?> | A Project from STI College Global City
             </p> 
           </div>  
           
