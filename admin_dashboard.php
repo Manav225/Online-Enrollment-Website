@@ -40,6 +40,20 @@
             </div>
             <div class="container">
                 <form action="serverside/change_admin.inc.php" method="POST">
+
+                    <?php
+                        if(isset($_SESSION['error_message'])){
+                    ?>
+                        <div class="warning_message_small">
+                            <img src="images/warning_symbol.png" alt="Warning Symbol">
+                            <h4><?php echo $_SESSION['error_message']; ?></h4>
+                        </div>
+                    <?php  
+                        }
+                    ?>
+
+                    
+                            
                     <table>
                         <tr>
                             <th colspan="2">Change Admin Credentials</th>
@@ -54,15 +68,15 @@
                         </tr>
                         <tr>
                             <td>New Username: </td>
-                            <td><input type="text" name="username_current"></td>
+                            <td><input type="text" name="username_new"></td>
                         </tr>
                         <tr>
                             <td>New Password: </td>
-                            <td><input type="password" name="password_current"></td>
+                            <td><input type="password" name="password_new"></td>
                         </tr>
                         <tr>
                             <td>Confirm New Password: </td>
-                            <td><input type="password" name="password_current_confirm"></td>
+                            <td><input type="password" name="password_new_confirm"></td>
                         </tr>
                         <tr>
                             <td><input type="submit" name="submit" value="Save Changes"></td>
@@ -84,19 +98,18 @@
                         </tr>
                         <tr>
                             <td>School Name: </td>
-                            <td><input type="text" name="school_name"></td>
+                            <td><input type="text" name="school_name" value="<?php echo $websiteName; ?>"></td>
                         </tr>   
                         <tr>
                             <td>School Address: </td>
-                            <td><input type="password" name="school_address"></td>
+                            <td><input type="text" name="school_address" value="<?php echo $websiteAddress; ?>"></td>
                         </tr>
                         <tr>
                             <td>School Contact Number: </td>
-                            <td><input type="text" name="school_contact"></td>
+                            <td><input type="text" name="school_contact" value="<?php echo $websiteContact; ?>"></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" name="submit" value="Save Changes"></td>
-                            <td><input type="submit" name="restore_to_default" value="Reset to Default"></td>
+                            <td colspan="2"><input type="submit" name="submit" value="Save Changes"></td>
                         </tr>
                     </table>
                 </form>

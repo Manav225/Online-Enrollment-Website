@@ -24,9 +24,11 @@
 
     <main>
         <div class="container">
-            <div class="image-slider">
-
+            <div class="image-slider" id="image-slider">
+                <img src="images/image_1.jpg" class="image-slides" alt="First Image">
+                <img src="images/image_2.jpg" class='image-slides' alt="Second Image">
             </div>
+
             <div class="social-media">
                 <h3>Like us on facebook</h3>
                 <div class="fb-page" data-href="https://www.facebook.com/taguigIS/" data-height="127" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/taguigIS/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/taguigIS/">Taguig Integrated School</a></blockquote></div>
@@ -38,23 +40,54 @@
 
     <div id="events">
         <div class="container">
-            <h2>News and Events</h2>
+            <h2>News and Events <?php 
+            if(isset($_SESSION['admin_logged_in'])){
+              echo "<a href='compose_content.php'><button>Compose News and Events</button></a>";
+            }
+            ?> </h2>
+
+            <?php
+                $newsQuery = "SELECT * FROM news;";
+                if($result = mysqli_query($conn, $newsQuery)){
+                    if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_array($result)){
+
+                            $newsTitle = $row['news_title'];
+                            $newsContent = $row['news_content'];
+                            $newsDate = $row['news_date'];
+                            $newsTime = $row['news_time'];
+                            $newsAuthor = $row['news_author'];
+
+                            echo "
+                            <div class='news'>
+                                <h3>$newsTitle</h3>
+                                <span class='news-date'>$newsDate | $newsTime</span>
+                                <p>$newsContent</p>
+                                <hr>
+                            </div>";
+                        }
+                    }
+                    else{
+
+                    }
+                }
+            ?> 
+            <h2>Announcements 
+            <?php 
+                if(isset($_SESSION['admin_logged_in'])){
+                    echo "<a href='compose_content.php'><button>Compose Announcements</button></a>";
+                }
+            ?> </h2>
+
             <div class="news">
                 <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ea!</h3>
+                <span class="news-date">Febuary 23, 2019 | 5:30 PM</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio provident ipsa fugiat tenetur officia, voluptatum beatae! Autem, nobis error.</p>
                 <hr>
             </div>
-            <div class="news">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ea!</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio provident ipsa fugiat tenetur officia, voluptatum beatae! Autem, nobis error.</p>
-                <hr>
-            </div>
-            <div class="news">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ea!</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio provident ipsa fugiat tenetur officia, voluptatum beatae! Autem, nobis error.</p>
-                <hr>
-            </div>
+
         </div>
+        
     </div>
 
     <?php

@@ -9,7 +9,7 @@
                     <?php
                         if(isset($_SESSION['admin_logged_in'])){
                             echo '
-                                <a href="serverside/logout.inc.php">Logout</a>
+                                <a href="serverside/logout.inc.php">Logout Admin</a>
                             ';
                         }
                         else{
@@ -18,7 +18,6 @@
                             ';
                         }
                     ?>
-                    <a href="#">About Us</a>
                 </div>
             </div>
         </div>
@@ -26,11 +25,13 @@
             <div class="container">
                 <div class="inner">
                     <div class="logo">
-                        <img src="./images/logo.png" alt="Taguig Integrated School">
+                        <a href="./index.php">
+                            <img src="./images/logo.png" alt="Taguig Integrated School">
+                        </a>
                     </div>
                     <div class="title">
-                        <h1><?php echo $websiteName; ?></h1>
-                        <p>LIWAYWAY STREET, STA. ANA TAGUIG CITY 1632</p>
+                        <h1><?php echo $websiteName; if (isset($_SESSION['admin_logged_in'])){ echo "<sup class='admin_mode'>ADMIN MODE</sup>"; } ?> </h1>
+                        <p><?php echo $websiteAddress; ?></p>
                     </div>
                 </div>
             </div>
@@ -40,9 +41,9 @@
                 <nav>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">About Us</a></li>
                         <li><a href="#">Teachers</a></li>
-                        <li><a href="#">Online Enrollment</a></li>
+                        <li><a href="#">Online Registration</a></li>
 
                         <?php
                             if(isset($_SESSION['admin_logged_in'])){

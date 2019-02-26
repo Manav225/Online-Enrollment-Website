@@ -10,7 +10,7 @@
                   <a href="#">Home</a>
                 </li>  
                 <li>
-                  <a href="#">Announcements</a>
+                  <a href="#">About Us</a>
                 </li>  
                 <li>
                   <a href="#">Teachers</a>
@@ -33,8 +33,8 @@
           <div class="col span_1_of_3"> 
             <h2>Contact</h2>  
             <p><?php echo $websiteName; ?>
-              <br /> LIWAYWAY STREET, STA. ANA TAGUIG CITY 1632
-              <br /> 275-51-09
+              <br /> <?php echo $websiteAddress; ?>
+              <br /> <?php echo $websiteContact; ?>
             </p> 
           </div> 
         </div>  
