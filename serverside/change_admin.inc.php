@@ -99,7 +99,7 @@
         // RESET TO DEFAULT
 
         $defaultUsername = "admin";
-        $defaultPassword = password_hash("admin", PASSWORD_DEFAULT);
+        $defaultPassword = password_hash($defaultUsername, PASSWORD_DEFAULT);
 
         $currentAdmin = $_SESSION['admin_logged_in'];
 

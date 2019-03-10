@@ -26,11 +26,11 @@
                 <div class="inner">
                     <div class="logo">
                         <a href="./index.php">
-                            <img src="./images/logo.png" alt="Taguig Integrated School">
+                            <img src="./images/<?php echo $websiteLogo; ?>" alt="Taguig Integrated School">
                         </a>
                     </div>
                     <div class="title">
-                        <h1><?php echo $websiteName; if (isset($_SESSION['admin_logged_in'])){ echo "<sup class='admin_mode'>ADMIN MODE</sup>"; } ?> </h1>
+                        <h1><?php echo $websiteName; if (isset($_SESSION['admin_logged_in'])){ echo "<sup class='admin_mode'>ADMIN</sup>"; } ?> </h1>
                         <p><?php echo $websiteAddress; ?></p>
                     </div>
                 </div>
@@ -41,9 +41,10 @@
                 <nav>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Teachers</a></li>
-                        <li><a href="#">Online Registration</a></li>
+                        <li><a href="about_us.php">About Us</a></li>
+                        <li><a href="faculty.php">Faculty &amp; Staff</a></li>
+                        <li><a href="facilities.php">Facilities</a></li>
+                        <li><a href="online_registration.php">Online Registration</a></li>
 
                         <?php
                             if(isset($_SESSION['admin_logged_in'])){

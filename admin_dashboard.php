@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $websiteName; ?> - Admin Dashboard</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="images/<?php echo $websiteLogo; ?>">
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -42,17 +42,48 @@
                 <form action="serverside/change_admin.inc.php" method="POST">
 
                     <?php
-                        if(isset($_SESSION['error_message'])){
-                    ?>
-                        <div class="warning_message_small">
-                            <img src="images/warning_symbol.png" alt="Warning Symbol">
-                            <h4><?php echo $_SESSION['error_message']; ?></h4>
-                        </div>
-                    <?php  
+                        if ( isset( $_GET['admin'] ) && !empty( $_GET['admin'] ) ){
+                            switch($_GET['admin']){
+                                case "password_too_short":
+                                    echo "  <div class='warning_message_small'>
+                                                <img src='images/warning_symbol.png' alt='Warning Symbol'>
+                                                <h4>Warning: Password is too short.</h4>
+                                            </div>
+                                        ";
+                                break;
+                                case "passwords_doesnt_match":
+                                    echo "  <div class='warning_message_small'>
+                                                <img src='images/warning_symbol.png' alt='Warning Symbol'>
+                                                <h4>Warning: Password does not match.</h4>
+                                            </div>
+                                        ";
+                                break;
+                                case "invalid_characters":
+                                echo "  <div class='warning_message_small'>
+                                            <img src='images/warning_symbol.png' alt='Warning Symbol'>
+                                            <h4>Warning: Ivalid characters were used.</h4>
+                                        </div>
+                                        ";
+                                break;
+                                case "incorrect_info":
+                                echo "  <div class='warning_message_small'>
+                                            <img src='images/warning_symbol.png' alt='Warning Symbol'>
+                                            <h4>Warning: Incorrect Admin Credentials.</h4>
+                                        </div>
+                                    ";
+                                break;
+                                case "empty":
+                                echo "  <div class='warning_message_small'>
+                                            <img src='images/warning_symbol.png' alt='Warning Symbol'>
+                                            <h4>Warning: Fill out all the fields.</h4>
+                                        </div>
+                                    ";
+                                break;
+                                default:
+                                break;
+                            }
                         }
                     ?>
-
-                    
                             
                     <table>
                         <tr>
@@ -91,10 +122,14 @@
             </div>
 
             <div class="container">
-                <form action="serverside/update_website_info.php" method="POST">
+                <form action="serverside/update_website_info.php" method="POST" enctype="multipart/form-data">
                     <table>
                         <tr>
                             <th colspan="2">School Information</th>
+                        </tr>
+                        <tr>
+                            <td>School Logo: </td>
+                            <td class="logo_input"><input type="file"  onchange="readURL(this)" name="file"><img src="images/<?php echo $websiteLogo; ?>" id="blah" width=50 height=50></td>
                         </tr>
                         <tr>
                             <td>School Name: </td>
@@ -115,7 +150,16 @@
                 </form>
             </div>
 
+            <div class="container">
+                <h3>Registered Applicants</h3>
+            </div>
+
+            <div class="container" id="application_button">
+                <a href="application_data.php">View Registered Applicants</a>
+            </div>
+
         </div>
+        
 
     <?php
         }
@@ -139,6 +183,22 @@
     <?php
         include_once "layouts/footer.php";
     ?>
+
+    <script>
+        
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    document.getElementById("blah").setAttribute("src", e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
 </body>
 </html>

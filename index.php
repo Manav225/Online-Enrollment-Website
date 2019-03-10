@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $websiteName; ?> - Home</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="images/<?php echo $websiteLogo; ?>">
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -24,9 +24,9 @@
 
     <main>
         <div class="container">
+        
             <div class="image-slider" id="image-slider">
-                <img src="images/image_1.jpg" class="image-slides" alt="First Image">
-                <img src="images/image_2.jpg" class='image-slides' alt="Second Image">
+                <img src="images/image_3.jpg" class='image-slides' alt="Second Image">
             </div>
 
             <div class="social-media">
@@ -40,14 +40,16 @@
 
     <div id="events">
         <div class="container">
-            <h2>News and Events <?php 
+            <h2>Events <?php 
             if(isset($_SESSION['admin_logged_in'])){
-              echo "<a href='compose_content.php'><button>Compose News and Events</button></a>";
+                echo "  <form method='GET' action='compose_content.php'>
+                            <button name='news' type='submit'>Compose Events</button>
+                        </form>";
             }
             ?> </h2>
 
             <?php
-                $newsQuery = "SELECT * FROM news;";
+                $newsQuery = "SELECT * FROM news ORDER BY news_id DESC LIMIT 3;";
                 if($result = mysqli_query($conn, $newsQuery)){
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_array($result)){
@@ -57,34 +59,105 @@
                             $newsDate = $row['news_date'];
                             $newsTime = $row['news_time'];
                             $newsAuthor = $row['news_author'];
+                            $id = $row['news_id'];
+
+                            $cuttedContent = substr($newsContent, 0, 70)."...";
 
                             echo "
                             <div class='news'>
-                                <h3>$newsTitle</h3>
+                                <h3><a href='school_news.php?id=$id&type=news'>$newsTitle</a></h3>
                                 <span class='news-date'>$newsDate | $newsTime</span>
-                                <p>$newsContent</p>
-                                <hr>
+                                <p>$cuttedContent</p> 
+                            ";    
+
+                            if(isset($_SESSION['admin_logged_in'])){
+                                echo "<form method='POST' action='serverside/delete_post.inc.php' class='crud'>
+                                <input type='text' name='ID' value='$id' style='display:none'>
+                                <input type='submit' class='delete-button' name='delete_news' value='Delete Post'>
+                                </form>
+                                <form method='GET' action='compose_content.php' class='crud'>
+                                <input type='text' name='ID' value='$id' style='display:none'>
+                                <input type='submit' class='delete-button' name='edit_news' value='Edit Post'>
+                                </form>";   
+                            }
+                            
+                            echo "
                             </div>";
                         }
+
+                        echo "  <div class='view_all'>
+                                    <h3><a href='news.php?type=events'>View All Events</a></h3>
+                                </div>";
                     }
                     else{
-
+                        echo "
+                        <div class='news'>
+                            <h3>No Available Events</h3>
+                        </div>
+                        ";  
                     }
                 }
             ?> 
             <h2>Announcements 
             <?php 
                 if(isset($_SESSION['admin_logged_in'])){
-                    echo "<a href='compose_content.php'><button>Compose Announcements</button></a>";
+                    echo "  <form method='GET' action='compose_content.php'>
+                                <button class='delete-button' name='announcements' type='submit'>Compose Announcements</button>
+                            </form>";
                 }
             ?> </h2>
 
-            <div class="news">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ea!</h3>
-                <span class="news-date">Febuary 23, 2019 | 5:30 PM</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio provident ipsa fugiat tenetur officia, voluptatum beatae! Autem, nobis error.</p>
-                <hr>
-            </div>
+            <?php
+                $newsQuery = "SELECT * FROM announcements ORDER BY announcement_id DESC LIMIT 3;";
+                if($result = mysqli_query($conn, $newsQuery)){
+                    if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_array($result)){
+
+                            $announcementTitle = $row['announcement_title'];
+                            $announcementContent = $row['announcement_content'];
+                            $announcementDate = $row['announcement_date'];
+                            $announcementTime = $row['announcement_time'];
+                            $announcementAuthor = $row['announcement_author'];
+                            $id = $row['announcement_id'];
+
+                            $cuttedContent = substr($announcementContent, 0, 70)."...";
+
+                            echo "
+                            <div class='news'>
+                            <h3><a href='school_news.php?id=$id&type=announcements'>$announcementTitle</a></h3>
+                                <span class='news-date'>$announcementDate | $announcementTime</span>
+                                <p>$cuttedContent</p> 
+                            ";    
+
+                            if(isset($_SESSION['admin_logged_in'])){
+                                echo "<form method='POST' action='serverside/delete_post.inc.php' class='crud'>
+                                <input type='text' name='ID' value='$id' style='display:none'>
+                                <input class='delete-button' type='submit' name='delete_announcement' value='Delete Post'>
+                                </form>
+                                <form method='GET' action='compose_content.php' class='crud'>
+                                <input type='text' name='ID' value='$id' style='display:none'>
+                                <input class='delete-button' type='submit' name='edit_announcement' value='Edit Post'>
+                                </form>
+                                ";   
+                            }
+                            
+                            echo "
+                            </div>";
+                        }
+
+                        echo "  <div class='view_all'>
+                                    <h3><a href='news.php?type=announcements'>View All Announcements</a></h3>
+                                </div>";
+                    }
+                    else{
+                        echo "
+                        <div class='news'>
+                            <h3>No Available Announcements</h3>
+                        </div>
+                        ";  
+                    }
+                }
+            ?> 
 
         </div>
         
@@ -96,3 +169,4 @@
 
 </body>
 </html>
+

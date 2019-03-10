@@ -7,16 +7,19 @@
             <div class="vmenu"> 
               <ul> 
                 <li>
-                  <a href="#">Home</a>
+                  <a href="index.php">Home</a>
                 </li>  
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="about_us.php">About Us</a>
                 </li>  
                 <li>
-                  <a href="#">Teachers</a>
+                  <a href="faculty.php">Faculty</a>
                 </li>
                 <li>
-                  <a href="#">Online Enrollment</a>
+                  <a href="facilities.php">Facilities</a>
+                </li>
+                <li>
+                  <a href="online_registration.php">Online Registration</a>
                 </li>
                 <?php
                   if(isset($_SESSION['admin_logged_in'])){
@@ -28,7 +31,7 @@
           </div>  
           <div class="col span_1_of_3"> 
             <h2>About Us</h2>  
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec.</p> 
+            <p>Taguig Integrated School is the oldest public school in the City of Taguig. Its former name was Taguig Central School.</p> 
           </div>  
           <div class="col span_1_of_3"> 
             <h2>Contact</h2>  

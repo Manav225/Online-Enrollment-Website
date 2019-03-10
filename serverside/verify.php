@@ -31,21 +31,17 @@
                 if(password_verify($password, $serverPassword)){
                     echo "Passowords Match!";
                     $_SESSION['admin_logged_in'] = $serverUsername;
-                    $_SESSION['loginerror'] = 0;
-                    header("Location: ../index.php?success");
+                    header("Location: ../index.php");
                 }
                 else{
-                    $_SESSION['loginerror'] = 1;
-                    header("Location: ../admin.php?incorrect");     
+                    header("Location: ../admin.php?login=error");     
                 }
             }
             else{
-                $_SESSION['loginerror'] = 1;
-                header("Location: ../admin.php?empty");
+                header("Location: ../admin.php?login=error");
             }
         }else{
-            $_SESSION['loginerror'] = 1;
-            header("Location: ../admin.php?empty");   
+            header("Location: ../admin.php?login=empty");   
         }
         
 

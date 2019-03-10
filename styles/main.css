@@ -8,6 +8,27 @@ body,html{
     font-family: 'Oxygen', sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 .container{
     width: 1000px;
     margin: 0 auto;
@@ -115,6 +136,17 @@ header{
 
 }
 
+/* Image upload for news */
+
+.upload_images{
+    height: 200px;
+}
+
+.logo_input{
+    display: flex;
+    align-items: center;
+}
+
 #bottom_header{
     height: 0;
 }
@@ -131,6 +163,11 @@ header{
     animation-fill-mode: forwards;
 }
 
+.nav-inner{
+    background-color: #fff;
+    position: absolute;
+}
+
 @keyframes nav_intro{
     0%{
         transform: translateY(-1000px);
@@ -143,6 +180,7 @@ header{
 #bottom_header nav ul li{
     display: inline-block;
     float: left;
+    position: relative;
     list-style-type: none;
 }
 
@@ -228,18 +266,39 @@ main .container .social-media{
 
 #events .news{
     padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px #aaa;
+    margin: 10px;
+    border-left: 5px solid rgba(228,66,66);
+}
+
+#events .news a{
+    text-decoration: none;
+    color: rgb(66, 66, 66);
 }
 
 #events .news p{
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: .95em;
 }
 
 #events .news .news-date{
-    color: rgb(59, 72, 247);
+    color: rgb(194, 46, 46);
     font-size: .8em;
 }
 
+.delete-button{
+    border: 2px solid rgba(160, 153, 153, 0.274);
+    background: rgb(197, 48, 48);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+.crud{
+    display: inline-block;
+}
 
 
 /* ADMIN STYLES */
@@ -310,6 +369,27 @@ main .container .social-media{
 }
 
 /* admin dashboard */
+
+#application_button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#application_button a{
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(197, 48, 48);
+}
+
+#application_button a:hover{
+    background-color: rgb(224, 54, 54);
+}
+
 .admin_dashboard_header{
     margin-top: 50px;
     padding: 10px;
@@ -345,6 +425,7 @@ main .container .social-media{
     margin: 15px auto;
     box-shadow: 0px 0px 5px #999;
     border-radius: 5px;
+    width: 500px;
 }
 
 .admin_dashboard_content form table tr td{
@@ -356,11 +437,18 @@ main .container .social-media{
 }
 
 .admin_dashboard_content form table tr td input[type="text"] {
-    padding: 2px 5px;
+    padding: 5px 5px;
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    width: 100%;
+
 }
 
 .admin_dashboard_content form table tr td input[type="password"] {
-    padding: 2px 5px;
+    padding: 5px 5px;
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    width: 100%;
 }
 
 
@@ -374,3 +462,104 @@ main .container .social-media{
     cursor: pointer;
 }
 
+/* Compose Interface */
+
+.composition_interface > .container{
+    box-shadow: 0px 0px 3px #bbb;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.composition_interface > .container form table{
+    padding: 10px;
+    width: 100%;    
+}
+
+.composition_interface > .container form input[type="text"]{
+    padding: 10px 5px;
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 2px solid rgba(160, 153, 153, 0.274);
+}
+
+.composition_interface > .container form textarea{
+    width: 100%;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    resize: none;
+    border-radius: 5px;
+    border: 2px solid rgba(160, 153, 153, 0.274);
+}
+
+.composition_interface > .container form input[type="submit"]{
+    background-color: rgb(197, 48, 48);
+    width: 100%;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 1.3em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.composition_interface > .container form input[type="submit"]:hover{
+    background-color: rgb(240, 71, 71);
+}
+
+.headline{
+    margin: 45px 0 10px 0;
+    
+}
+
+.headline .container{
+    border-bottom: 1px solid #aaa;
+}
+
+.headline h2{
+    text-transform: uppercase;
+    text-align: justify;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.news_content .container{
+    padding: 10px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.news_image .container{
+    overflow: hidden;
+}
+
+.news_image .container img{
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.view_all{
+    box-shadow: 0px 0px 3px #aaa;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 2px solid rgb(228, 66, 66);
+}
+
+.view_all h3, .view_all a{
+    text-align: right;
+    padding-right: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.author{
+    font-size: .45em;
+    font-style: italic;
+    font-weight: 100;
+    display: block;
+}

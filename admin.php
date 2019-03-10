@@ -1,7 +1,6 @@
 <?php
     session_start();
     include_once 'serverside/variables.inc.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $websiteName; ?> - Admin Login</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="images/<?php echo $websiteLogo; ?>">
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -46,12 +45,20 @@
                     <div class="form_inner">
 
                     <?php
-                        if(empty($_SESSION['loginerror'])){
-                            
-                        }
-                        else{
-                            if($_SESSION['loginerror'] > 0){
-                                echo '<span class="admin_login_error">Incorrect User Name or Password</span>' ;
+                        if ( isset( $_GET['login'] ) && !empty( $_GET['login'] ) ){
+                            if($_GET['login'] == "empty"){
+                                echo "
+                                    <div class='admin_login_error'>
+                                        <p>Warning: User Name or Password is empty</p>
+                                    </div>
+                                ";
+                            }
+                            else if($_GET['login'] == "error"){
+                                echo "
+                                    <div class='admin_login_error'>
+                                        <p>Warning: User Name or Password is incorrect</p>
+                                    </div>
+                                ";
                             }
                         }
                     ?>
